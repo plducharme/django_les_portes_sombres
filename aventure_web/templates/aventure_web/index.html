@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Les Portes Sombres </title>
+</head>
+<body>
+    <form action="/selection-hero/" method="POST">
+        <div>Êtes-vous prêt à affronter les portes sombres?</div>
+        <table>
+            <th>Classe</th>
+            <th>Description</th>
+            <!-- La liste heros est passé dans la réponse, voir views.py -->
+            <th>Sélection</th>
+            {% for hero in heros %}
+                <tr>
+                    <td>{{ hero.classe }}</td>
+                    <td>{{ hero.description }}</td>
+                    <td><label for="classe">
+                        <input type="radio" id="{{ hero.classe }}">
+                    </label></td>
+                </tr>
+
+            {% endfor %}
+        </table>
+    </form>
+    <p>
+
+    </p>
+</body>
+</html>
