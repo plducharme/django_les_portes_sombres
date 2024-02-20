@@ -5,7 +5,9 @@
     <title>Les Portes Sombres </title>
 </head>
 <body>
-    <form action="selection-hero/" method="POST">
+    <form action="{% url 'aventure:selection' %}" method="POST">
+        <!-- Ajout d'un CSRF Token -->
+        {% csrf_token %}
         <div>Êtes-vous prêt à affronter les portes sombres?</div>
         <table>
             <th>Classe</th>
@@ -17,7 +19,7 @@
                     <td>{{ classe.nom }}</td>
                     <td>{{ classe.description }}</td>
                     <td><label for="classe">
-                        <input type="radio" id="{{ classe.id }}" name="classe_id">
+                        <input type="radio" id="{{ classe.id }}" name="classe_id" value="{{ classe.id }}">
                     </label></td>
                 </tr>
 

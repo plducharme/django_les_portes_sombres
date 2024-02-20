@@ -15,7 +15,9 @@ def index(request):
     context = {
         "classes": liste_classes
     }
+
     return HttpResponse(template.render(context, request))
+
 
 def selection_hero(request):
     # Créer la form avec les données provenant du request
@@ -29,3 +31,7 @@ def selection_hero(request):
         hero.classe = classe_hero
         hero.save()
         return HttpResponseRedirect("intro")
+    else:
+        return index(request)
+
+
