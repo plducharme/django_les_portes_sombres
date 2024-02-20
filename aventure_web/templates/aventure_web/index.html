@@ -5,24 +5,30 @@
     <title>Les Portes Sombres </title>
 </head>
 <body>
-    <form action="/selection-hero/" method="POST">
+    <form action="selection-hero/" method="POST">
         <div>Êtes-vous prêt à affronter les portes sombres?</div>
         <table>
             <th>Classe</th>
             <th>Description</th>
             <!-- La liste heros est passé dans la réponse, voir views.py -->
             <th>Sélection</th>
-            {% for hero in heros %}
+            {% for classe in classes %}
                 <tr>
-                    <td>{{ hero.classe }}</td>
-                    <td>{{ hero.description }}</td>
+                    <td>{{ classe.nom }}</td>
+                    <td>{{ classe.description }}</td>
                     <td><label for="classe">
-                        <input type="radio" id="{{ hero.classe }}">
+                        <input type="radio" id="{{ classe.id }}" name="classe_id">
                     </label></td>
                 </tr>
 
             {% endfor %}
         </table>
+
+        <label for="nom_hero">
+            Nom du héro:
+            <input type="text" name="nom_hero">
+        </label>
+        <input type="submit" value="Commencer l'aventure!">
     </form>
     <p>
 
