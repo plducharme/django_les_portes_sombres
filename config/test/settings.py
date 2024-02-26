@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'aventure_web.apps.AventureWebConfig',
+    'djsupervisor',
 ]
 
 MIDDLEWARE = [

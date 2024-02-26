@@ -1,1 +1,2 @@
 django>=5.0.2
+django-supervisor>=0.4.0
