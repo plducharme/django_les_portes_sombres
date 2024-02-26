@@ -9,4 +9,5 @@ app_name = "aventure"
 urlpatterns = [
     path("", views.index, name="index"),
     path("selection-hero", views.selection_hero, name="selection"),
+    path("intro", views.intro, name="intro"),
 ]

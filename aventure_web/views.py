@@ -23,15 +23,24 @@ def selection_hero(request):
     # Créer la form avec les données provenant du request
     form = SelectionHeroForm(request.POST)
     if form.is_valid():
-        # sauvegarder le héro
-        classe_hero = Classe.objects.get(id=form.classe_id)
+        # Aller chercher l'objet de la Classe sélectionnée à partir de la BD
+        classe_hero = Classe.objects.get(id=form.data['classe_id'])
 
         hero = Hero()
-        hero.nom = form.nom_hero
+        hero.nom = form.data['nom_hero']
         hero.classe = classe_hero
         hero.save()
+        request.session['nom_hero'] = hero.nom
         return HttpResponseRedirect("intro")
     else:
         return index(request)
+
+
+def intro(request):
+    template = loader.get_template("aventure/intro.html")
+    context = {
+        'nom_hero' : request.session.get('nom_hero'),
+    }
+
 
 
