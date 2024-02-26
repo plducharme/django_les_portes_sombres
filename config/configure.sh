@@ -6,5 +6,5 @@ python3 -m pip install -r config/requirements.txt
 cp -f config/test/settings.py .
 python3 manage.py makemigrations
 python3 manage.py migrate
-python3 manage.py runserver
+python3 manage.py runserver 0.0.0.0:8000 --noreload
 
