@@ -28,7 +28,9 @@ def selection_hero(request):
         hero = Hero()
         hero.nom = form.data['nom_hero']
         hero.classe = classe_hero
+        # Sauvegarde en BD
         hero.save()
+        # Mettre en session la variable nom_hero
         request.session['nom_hero'] = hero.nom
         return HttpResponseRedirect("intro")
     else:
@@ -38,7 +40,9 @@ def selection_hero(request):
 def intro(request):
     template = loader.get_template("aventure_web/intro.html")
     context = {
-        'nom_hero' : request.session.get('nom_hero'),
+        # Exemple d'aller chercher une variable dans la session pour l'assigner à une variable du context
+        # Il est possible d'accéder à une variable de session directement dans le template sans la passer par le context
+        'nom_hero_ctx': request.session.get('nom_hero'),
     }
     return HttpResponse(template.render(context, request))
 
