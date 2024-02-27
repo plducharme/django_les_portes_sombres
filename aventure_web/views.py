@@ -11,11 +11,10 @@ def index(request):
 
     liste_classes = Classe.objects.all()
     # On se construit un dictionnaire qui va contenir le "context" du template (les données que l'on veut utiliser
-    # dans le template)
+    # dans le template pour cette "request")
     context = {
         "classes": liste_classes
     }
-
     return HttpResponse(template.render(context, request))
 
 
@@ -37,10 +36,11 @@ def selection_hero(request):
 
 
 def intro(request):
-    template = loader.get_template("aventure/intro.html")
+    template = loader.get_template("aventure_web/intro.html")
     context = {
         'nom_hero' : request.session.get('nom_hero'),
     }
+    return HttpResponse(template.render(context, request))
 
 
 
