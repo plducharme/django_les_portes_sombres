@@ -1,0 +1,53 @@
+version: '3.8'
+services:
+  db_lps:
+    image: mysql:latest
+    cap_add:
+      - SYS_NICE
+    restart: always
+    environment:
+      - MYSQL_DATABASE=lps
+      - MYSQL_ROOT_PASSWORD=lps_password
+    ports:
+      - '3306:3306'
+    volumes:
+      - db:/var/lib/mysql/lps
+  db_spu:
+    image: mysql:latest
+    cap_add:
+      - SYS_NICE
+    restart: always
+    environment:
+      - MYSQL_DATABASE=spu
+      - MYSQL_ROOT_PASSWORD=spu_password
+    ports:
+      - '3307:3307'
+    volumes:
+      - db:/var/lib/mysql/spu
+  db_rpa:
+    image: mysql:latest
+    cap_add:
+      - SYS_NICE
+    restart: always
+    environment:
+      - MYSQL_DATABASE=rpa
+      - MYSQL_ROOT_PASSWORD=rpa_password
+    ports:
+      - '3308:3308'
+    volumes:
+      - db:/var/lib/mysql/rpa
+  db_calc:
+    image: mysql:latest
+    cap_add:
+      - SYS_NICE
+    restart: always
+    environment:
+      - MYSQL_DATABASE=calc
+      - MYSQL_ROOT_PASSWORD=calc_password
+    ports:
+      - '3309:3309'
+    volumes:
+      - db:/var/lib/mysql/rpa
+volumes:
+  db:
+    driver: local
