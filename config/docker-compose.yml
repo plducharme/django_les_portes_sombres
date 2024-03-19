@@ -11,7 +11,7 @@ services:
     ports:
       - '3306:3306'
     volumes:
-      - db:/var/lib/mysql/lps
+      - db_lps:/var/lib/mysql/lps
   db_spu:
     image: mysql:latest
     cap_add:
@@ -23,7 +23,7 @@ services:
     ports:
       - '3307:3307'
     volumes:
-      - db:/var/lib/mysql/spu
+      - db_spu:/var/lib/mysql
   db_rpa:
     image: mysql:latest
     cap_add:
@@ -35,7 +35,7 @@ services:
     ports:
       - '3308:3308'
     volumes:
-      - db:/var/lib/mysql/rpa
+      - db_rpa:/var/lib/mysql
   db_calc:
     image: mysql:latest
     cap_add:
@@ -47,7 +47,10 @@ services:
     ports:
       - '3309:3309'
     volumes:
-      - db:/var/lib/mysql/calc
+      - db_calc:/var/lib/mysql
 volumes:
-  db:
-    driver: local
+  db_lps:
+  db_spu:
+  db_rpa:
+  db_calc:
+
