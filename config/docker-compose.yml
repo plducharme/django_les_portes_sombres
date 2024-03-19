@@ -47,7 +47,7 @@ services:
     ports:
       - '3309:3309'
     volumes:
-      - db:/var/lib/mysql/rpa
+      - db:/var/lib/mysql/calc
 volumes:
   db:
     driver: local
