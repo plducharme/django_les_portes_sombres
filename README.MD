@@ -8,7 +8,9 @@ voir les commentaires dans le fichier django_les_portes_sombres/urls.py
 - Pour générer automatiquement les tables à partir du modèle défini  
 > python manage.py makemigrations  
   - Peut aussi être fait pour un app django en particulier: 
-    > python manage.py makemigrations <app>
+  ```
+  python manage.py makemigrations <app>
+  ```
 - Applique les migrations de BD si nécessaire 
 > python manage.py migrate  
 
