@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+import aventure_web.views
 
 # Ceci défini le "context root" de l'application
 # ex: http://127.0.0.1:8000/admin ouvre l'application d'administration
@@ -24,5 +25,6 @@ from django.urls import path, include
 # de son fichier urls.py
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', aventure_web.views.index),
     path("aventure/", include(("aventure_web.urls", "aventure_web"), namespace="aventure")),
 ]
